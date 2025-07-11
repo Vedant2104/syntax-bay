@@ -1,0 +1,29 @@
+diff --git a/node_modules/@clerk/shared/dist/react/index.mjs b/node_modules/@clerk/shared/dist/react/index.mjs
+index d93825d..d5571e2 100644
+--- a/node_modules/@clerk/shared/dist/react/index.mjs
++++ b/node_modules/@clerk/shared/dist/react/index.mjs
+@@ -63,9 +63,13 @@ __export(clerk_swr_exports, {
+ });
+ __reExport(clerk_swr_exports, swr_star);
+ import * as swr_star from "swr";
+-import { default as default2 } from "swr";
+-import { default as default3 } from "swr/infinite";
++import * as default2 from "swr";
+ 
++// import { default as default3 } from "swr/infinite";
++import { useSWRInfinite as default3 } from "swr";
++
++// import * as default3 from "swr/infinite";
++const default3_fn = default3.default || default3.useSWRInfinite || (() => {});
+ // src/react/contexts.tsx
+ var [ClerkInstanceContext, useClerkInstanceContext] = createContextAndHook("ClerkInstanceContext");
+ var [UserContext, useUserContext] = createContextAndHook("UserContext");
+@@ -183,7 +187,7 @@ var usePagesOrInfinite = (params, fetcher, config, cacheKeys) => {
+     size,
+     setSize,
+     mutate: swrInfiniteMutate
+-  } = default3(
++  } = default3_fn(
+     (pageIndex) => {
+       if (!triggerInfinite || !enabled) {
+         return null;
