@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Symtax Bay",
+  title: "Syntax Bay",
   description: "Interactive Code Editor",
 };
 
